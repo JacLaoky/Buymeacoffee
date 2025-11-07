@@ -6,8 +6,8 @@ import injectedModule from "@web3-onboard/injected-wallets";
 const coinbaseWalletSdk = coinbaseWalletModule();
 
 const walletConnect = walletConnectModule({
-  projectId: "9001a48764eeb8f5f6c9bf8270bf964d", // ⬅️ 把这里替换成你的真实 Project ID
-  requiredChains: [1001] // 1001 是 Kairos Testnet (0x3e9) 的十进制 ID
+  projectId: "9001a48764eeb8f5f6c9bf8270bf964d",
+  requiredChains: [1001]
 });
 
 const injected = injectedModule();
@@ -44,13 +44,23 @@ const KAIROS_TESTNET_URL = `https://public-en-kairos.node.kaia.io`;
     ],
     appMetadata: {
       name: "Buy Me a Coffee DApp", // change to your dApp name
-      icon: "/coffee-icon.svg",
-      logo: "/coffee-icon.svg",
+      icon: "/coffee.svg",
+      logo: "/coffee.svg",
       description: "Web3Onboard-Kaia",
       recommendedInjectedWallets: [
         { name: "Coinbase", url: "https://wallet.coinbase.com/" },
         { name: "MetaMask", url: "https://metamask.io" }
       ]
+    },
+    accountCenter: {
+      desktop: {
+        enabled: true,
+        position: 'topRight'
+      },
+      mobile: {
+        enabled: true,
+        position: 'topRight'
+      }
     }
   })
 export default function App({ Component, pageProps }) {
